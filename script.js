@@ -4,6 +4,39 @@ document.addEventListener('DOMContentLoaded', function() {
     const socialItems = document.querySelectorAll('.social-item');
     const sections = document.querySelectorAll('.section');
 
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+    const logo = document.querySelector('.logo');
+
+    // Check for saved theme preference or default to dark theme
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    
+    if (currentTheme === 'light') {
+        body.classList.add('light-theme');
+        themeIcon.className = 'hgi hgi-stroke hgi-sun-01';
+        logo.src = 'assets/logo-dark.png';
+    } else {
+        themeIcon.className = 'hgi hgi-stroke hgi-moon-02';
+        logo.src = 'assets/logo-light.png';
+    }
+
+    // Theme toggle event listener
+    themeToggle.addEventListener('click', function() {
+        body.classList.toggle('light-theme');
+        
+        if (body.classList.contains('light-theme')) {
+            themeIcon.className = 'hgi hgi-stroke hgi-sun-01';
+            logo.src = 'assets/logo-dark.png';
+            localStorage.setItem('theme', 'light');
+        } else {
+            themeIcon.className = 'hgi hgi-stroke hgi-moon-02';
+            logo.src = 'assets/logo-light.png';
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+
     // Function to show specific section
     function showSection(targetSection) {
         // Hide all sections

@@ -5,7 +5,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     padding-top: env(safe-area-inset-top);
 }
 
@@ -17,28 +18,68 @@ body {
     background-color: #1a1a1a;
 }
 
-/* Ana container - blog tarzı margin */
+/* Ana container */
 .container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 80px 20px 20px 20px;
     min-height: calc(100vh - 80px);
     background-color: #1a1a1a;
 }
 
 /* Header */
 .header {
-    padding: 30px 0;
-    margin-bottom: 30px;
-    border-bottom: 3px solid #007bff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 20px;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 15px;
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.theme-toggle {
+    background: rgba(45, 45, 45, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: rgba(255, 255, 255, 0.7);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #7b1fa2;
+    transform: translateY(-1px);
+}
+
+.theme-toggle i {
+    font-size: 1.2rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .name {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #ffffff;
-    text-align: left;
-    margin: 0;
+    display: none;
 }
 
 /* Content sections */
@@ -100,7 +141,7 @@ body {
     transform: translateX(-50%);
     width: auto;
     min-width: fit-content;
-    background: rgba(45, 45, 45, 0.8);
+    background: transparent;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -109,8 +150,8 @@ body {
     justify-content: center;
     gap: 8px;
     padding: 8px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 
-                0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
     z-index: 1000;
 }
 
@@ -136,22 +177,22 @@ body {
 .nav-item:hover {
     background: rgba(255, 255, 255, 0.15);
     border-color: rgba(255, 255, 255, 0.2);
-    color: #00d4ff;
+    color: #7b1fa2;
     transform: translateY(-2px);
 }
 
 .nav-item.active {
-    color: #00d4ff;
-    background: rgba(0, 212, 255, 0.2);
-    border-color: rgba(0, 212, 255, 0.3);
-    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+    color: #7b1fa2;
+    background: rgba(123, 31, 162, 0.2);
+    border-color: rgba(123, 31, 162, 0.3);
+    box-shadow: 0 4px 20px rgba(123, 31, 162, 0.3);
 }
 
 /* Tooltip styles */
 .nav-item::after {
     content: attr(data-tooltip);
     position: absolute;
-    bottom: 63px; 
+    bottom: 63px;
     left: 50%;
     transform: translateX(-50%);
     background: rgba(45, 45, 45, 0.9);
@@ -170,7 +211,7 @@ body {
     pointer-events: none;
     z-index: 1001;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2),
-                0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
 }
 
 .nav-item::before {
@@ -227,22 +268,22 @@ body {
 .social-item:hover {
     background: rgba(255, 255, 255, 0.15) !important;
     border-color: rgba(255, 255, 255, 0.2) !important;
-    color: #00d4ff !important;
+    color: #7b1fa2 !important;
     transform: translateY(-2px);
 }
 
 .social-item.active {
-    color: #00d4ff !important;
-    background: rgba(0, 212, 255, 0.2) !important;
-    border-color: rgba(0, 212, 255, 0.3) !important;
-    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+    color: #7b1fa2 !important;
+    background: rgba(123, 31, 162, 0.2) !important;
+    border-color: rgba(123, 31, 162, 0.3) !important;
+    box-shadow: 0 4px 20px rgba(123, 31, 162, 0.3);
 }
 
 /* Social Item Tooltips with Arrow Icon */
 .social-item::after {
     content: attr(data-tooltip) " ↗";
     position: absolute;
-    bottom: 63px; 
+    bottom: 63px;
     left: 50%;
     transform: translateX(-50%);
     background: rgba(45, 45, 45, 0.9);
@@ -261,7 +302,7 @@ body {
     pointer-events: none;
     z-index: 1001;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2),
-                0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
 }
 
 .social-item::before {
@@ -295,20 +336,146 @@ body {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
+/* Light Theme */
+body.light-theme {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+body.light-theme .container {
+    background-color: #f8f9fa;
+}
+
+body.light-theme .header {
+    background: transparent;
+}
+
+body.light-theme .logo {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+body.light-theme .theme-toggle {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.7);
+}
+
+body.light-theme .theme-toggle:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.2);
+    color: #7b1fa2;
+}
+
+body.light-theme .section h2 {
+    color: #212529;
+    border-bottom-color: #dee2e6;
+}
+
+body.light-theme .section p {
+    color: #495057;
+}
+
+body.light-theme .contact-info {
+    background-color: #ffffff;
+    border-color: #dee2e6;
+}
+
+body.light-theme .bottom-nav {
+    background: transparent;
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(0, 0, 0, 0.05) inset;
+}
+
+body.light-theme .nav-item {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.7);
+}
+
+body.light-theme .nav-item:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.2);
+    color: #7b1fa2;
+}
+
+body.light-theme .nav-item.active {
+    color: #7b1fa2;
+    background: rgba(123, 31, 162, 0.1);
+    border-color: rgba(123, 31, 162, 0.3);
+    box-shadow: 0 4px 20px rgba(123, 31, 162, 0.2);
+}
+
+body.light-theme .nav-item::after {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 0, 0, 0.15);
+    color: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(0, 0, 0, 0.05) inset;
+}
+
+body.light-theme .nav-item::before {
+    border-top-color: rgba(255, 255, 255, 0.95);
+}
+
+body.light-theme .social-item {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+    color: rgba(0, 0, 0, 0.7) !important;
+}
+
+body.light-theme .social-item:hover {
+    background: rgba(0, 0, 0, 0.05) !important;
+    border-color: rgba(0, 0, 0, 0.2) !important;
+    color: #7b1fa2 !important;
+}
+
+body.light-theme .social-item::after {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 0, 0, 0.15);
+    color: rgba(0, 0, 0, 0.9);
+}
+
+body.light-theme .social-item::before {
+    border-top-color: rgba(255, 255, 255, 0.95);
+}
+
+body.light-theme .nav-divider {
+    background: rgba(0, 0, 0, 0.2);
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .container {
-        margin: 0;
-        padding: 15px;
-        box-shadow: none;
-        background-color: #2d2d2d;
-        border-radius: 0;
+        padding: 80px 15px 15px 15px;
+        background-color: #1a1a1a;
+    }
+
+    .header {
+        padding: 15px 20px;
+    }
+
+
+
+    .logo {
+        height: 15px;
+    }
+
+    .theme-toggle {
+        width: 35px;
+        height: 35px;
+        padding: 6px;
+    }
+
+    .theme-toggle i {
+        font-size: 1.1rem;
     }
 
     .bottom-nav {
@@ -365,8 +532,26 @@ body {
 
 @media (max-width: 480px) {
     .container {
-        padding: 10px;
-        background-color: #2d2d2d;
+        padding: 80px 10px 10px 10px;
+        background-color: #1a1a1a;
+    }
+
+    .header {
+        padding: 15px 20px;
+    }
+
+    .logo {
+        height: 15px;
+    }
+
+    .theme-toggle {
+        width: 32px;
+        height: 32px;
+        padding: 5px;
+    }
+
+    .theme-toggle i {
+        font-size: 1rem;
     }
 
     .bottom-nav {
@@ -377,10 +562,6 @@ body {
         padding: 5px;
         gap: 5px;
         border-radius: 15px;
-    }
-
-    .header {
-        padding: 20px 0;
     }
 
     .name {
