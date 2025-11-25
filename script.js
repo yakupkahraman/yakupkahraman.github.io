@@ -4,38 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const socialItems = document.querySelectorAll('.social-item');
     const sections = document.querySelectorAll('.section');
 
-    // Theme toggle functionality
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
-    const body = document.body;
-    const logo = document.querySelector('.logo');
-
-    // Check for saved theme preference or default to dark theme
-    const currentTheme = localStorage.getItem('theme') || 'dark';
-
-    if (currentTheme === 'light') {
-        body.classList.add('light-theme');
-        themeIcon.className = 'hgi hgi-stroke hgi-sun-01';
-        logo.src = 'assets/logo-dark.png';
-    } else {
-        themeIcon.className = 'hgi hgi-stroke hgi-moon-02';
-        logo.src = 'assets/logo-light.png';
-    }
-
-    // Theme toggle event listener
-    themeToggle.addEventListener('click', function () {
-        body.classList.toggle('light-theme');
-
-        if (body.classList.contains('light-theme')) {
-            themeIcon.className = 'hgi hgi-stroke hgi-sun-01';
-            logo.src = 'assets/logo-dark.png';
-            localStorage.setItem('theme', 'light');
-        } else {
-            themeIcon.className = 'hgi hgi-stroke hgi-moon-02';
-            logo.src = 'assets/logo-light.png';
-            localStorage.setItem('theme', 'dark');
-        }
-    });
+    // Theme toggle functionality removed as per user request
 
     // Add click event listeners to navigation items (only for sections)
     navItems.forEach(item => {
@@ -75,8 +44,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Intersection Observer for scroll-based navigation highlighting and animations
     const observerOptions = {
         root: null,
-        rootMargin: '-10% 0px -10% 0px',
-        threshold: 0.1
+        rootMargin: '-20% 0px -20% 0px', // Trigger when section is more central
+        threshold: 0.2
     };
 
     const observer = new IntersectionObserver((entries) => {
